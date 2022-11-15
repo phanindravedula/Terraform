@@ -4,16 +4,15 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- main
 
-pool:
-  vmImage: ubuntu-latest
+pool: Default
 
 steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
-    SourceFolder: $(agent.builddirectory)/StorageAccounts
+    SourceFolder: 'StorageAccount'
     Contents: '**.tf'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
